@@ -25,6 +25,7 @@ jobs:
           - 22
           - 24
           - 24yourkit
+          - 24jprofiler
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3
