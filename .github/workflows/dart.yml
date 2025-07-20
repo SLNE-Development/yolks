@@ -16,11 +16,11 @@ jobs:
       fail-fast: false
       matrix:
         tag:
-          - '2.17'
-          - '2.18'
-          - '2.19'
-          - '3.3'
-          - 'stable'
+          - "2.17"
+          - "2.18"
+          - "2.19"
+          - "3.3"
+          - "stable"
     steps:
       - uses: actions/checkout@v4
       # Setup QEMU for ARM64 Build
@@ -40,5 +40,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/yolks:dart_${{ matrix.tag }}
-            ${{ github.repository_owner == 'pelican-eggs' && format('ghcr.io/parkervcp/yolks:dart_{0}', matrix.tag) || '' }}
+            ghcr.io/slne-development/yolks:dart_${{ matrix.tag }}

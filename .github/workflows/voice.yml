@@ -37,7 +37,6 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/yolks:voice_${{ matrix.tag }}
             ${{ github.repository_owner == 'pelican-eggs' && format('ghcr.io/parkervcp/yolks:voice_{0}', matrix.tag) || '' }}
 
-
   pushx64_arm64:
     name: "yolks:voice_${{ matrix.tag }}"
     runs-on: ubuntu-latest
@@ -49,7 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # Setup QEMU for ARM64 Build
-      - uses: docker/setup-qemu-action@v3      
+      - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
         with:
           version: "v0.8.2"
@@ -66,5 +65,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/yolks:voice_${{ matrix.tag }}
-            ${{ github.repository_owner == 'pelican-eggs' && format('ghcr.io/parkervcp/yolks:voice_{0}', matrix.tag) || '' }}
+            ghcr.io/slne-development/yolks:voice_${{ matrix.tag }}

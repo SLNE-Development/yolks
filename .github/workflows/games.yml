@@ -18,14 +18,14 @@ jobs:
         game:
           - altv
           - arma3
-          - dayz                
+          - dayz
           - mohaa
           - rust
           - samp
           - source
           - valheim
           - thebattleforwesnoth
-          
+
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v3
@@ -43,8 +43,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/games:${{ matrix.game }}
-            ${{ github.repository_owner == 'pelican-eggs' && format('ghcr.io/parkervcp/games:{0}', matrix.game) || '' }}
+            ghcr.io/slne-development/yolks:games_${{ matrix.game }}
   pushAll:
     name: "games_All:${{ matrix.game }}"
     runs-on: ubuntu-latest
@@ -75,5 +74,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/games:${{ matrix.game }}
-            ${{ github.repository_owner == 'pelican-eggs' && format('ghcr.io/parkervcp/games:{0}', matrix.game) || '' }}
+            ghcr.io/slne-development/yolks:games_${{ matrix.game }}

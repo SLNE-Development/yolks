@@ -20,7 +20,7 @@ jobs:
           - ubuntu
           - dotnet
           - proton
-          - proton_8   
+          - proton_8
           - sniper
     steps:
       - uses: actions/checkout@v4
@@ -39,5 +39,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/steamcmd:${{ matrix.distro }}
-            ${{ github.repository_owner == 'pelican-eggs' && format('ghcr.io/parkervcp/steamcmd:{0}', matrix.distro) || '' }}
+            ghcr.io/slne-development/yolks:steamcmd_${{ matrix.distro }}
