@@ -23,7 +23,7 @@ RUN         apt update -y \
 	unzip
 
 RUN mkdir -p /opt/jprofiler && \
-	wget https://download.ej-technologies.com/jprofiler/jprofiler_linux_14_0_6.tar.gz -O /tmp/jprofiler.tar.gz && \
+	wget https://download.ej-technologies.com/jprofiler/jprofiler_linux_15_0_2.tar.gz -O /tmp/jprofiler.tar.gz && \
 	tar -xzf /tmp/jprofiler.tar.gz --strip-components=1 -C /opt/jprofiler && \
 	rm /tmp/jprofiler.tar.gz
 
