@@ -6,21 +6,25 @@ LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolk
 LABEL       org.opencontainers.image.licenses=MIT
 
 RUN         apt update -y \
-            && apt install -y \
-                curl \
-                lsof \
-                ca-certificates \
-                openssl \
-                git \
-                tar \
-                sqlite3 \
-                fontconfig \
-                tzdata \
-                iproute2 \
-                libfreetype6 \
-                tini \
-                zip \
-                unzip
+	&& apt install -y \
+	curl \
+	lsof \
+	ca-certificates \
+	openssl \
+	git \
+	tar \
+	sqlite3 \
+	fontconfig \
+	tzdata \
+	iproute2 \
+	libfreetype6 \
+	tini \
+	zip \
+	unzip
+
+RUN wget https://www.yourkit.com/download/docker/YourKit-JavaProfiler-2025.3-docker.zip -P /tmp/ && \
+	unzip /tmp/YourKit-JavaProfiler-2025.3-docker.zip -d /usr/local && \
+	rm /tmp/YourKit-JavaProfiler-2025.3-docker.zip
 
 ## Setup user and working directory
 RUN         useradd -m -d /home/container -s /bin/bash container
